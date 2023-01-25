@@ -32,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
         maximumSize: MaterialStateProperty.all(const Size(350, 54)),
         backgroundColor: MaterialStateProperty.all(const Color(white))),
     icon: Image.asset(
-      "images/google_icon.png",
+      "assets/images/google_icon.png",
       width: 24,
       height: 24,
     ),
@@ -73,25 +73,28 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              children: [
-                Text(
-                  "Join",
-                  style: firstWordStyle,
-                ),
-                Text(
-                  "to",
-                  style: TextStyle(
-                      color: height > 540 ? Color(blue) : Color(white),
-                      fontSize: 48,
-                      decoration: TextDecoration.none,
-                      fontFamily: 'RockSalt'),
-                ),
-                Text(
-                  "us",
-                  style: anothersWordsStyle,
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.only(top: 45.0),
+              child: Column(
+                children: [
+                  Text(
+                    "Join",
+                    style: firstWordStyle,
+                  ),
+                  const Text(
+                    "to",
+                    style: TextStyle(
+                        color: Color(white),
+                        fontSize: 48,
+                        decoration: TextDecoration.none,
+                        fontFamily: 'RockSalt'),
+                  ),
+                  Text(
+                    "us",
+                    style: anothersWordsStyle,
+                  ),
+                ],
+              ),
             ),
             googleSignInButton,
             Padding(
@@ -100,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    "Google",
+                    "Google ",
                     style: googleTextStyle,
                   ),
                   Text("Bank", style: bankTextStyle)
