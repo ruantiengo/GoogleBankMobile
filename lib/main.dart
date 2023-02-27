@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_bank_mobile/pages/login/login_page.dart';
+import 'package:google_bank_mobile/pages/main/main_page.dart';
+import 'package:google_bank_mobile/shared/styles.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,8 +14,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
+      title: 'Flutter Demo',
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => const LoginPage(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/main': (context) => const MainPage(),
+      },
+      theme: ThemeData(
           // This is the theme of your application.
           //
           // Try running your application with "flutter run". You'll see the
@@ -23,8 +32,7 @@ class MyApp extends StatelessWidget {
           // or simply save your changes to "hot reload" in a Flutter IDE).
           // Notice that the counter didn't reset back to zero; the application
           // is not restarted.
-          primarySwatch: Colors.blue,
-        ),
-        home: const LoginPage());
+          primaryColor: const Color(blue)),
+    );
   }
 }
