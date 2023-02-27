@@ -21,12 +21,14 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: const GoogleAppBar(containBackButton: false).build(context),
       body: Container(
-        child: const SingleChildScrollView(
+        child: SingleChildScrollView(
           child: Column(
             children: [
               BalanceWidget(),
               MenuArea(),
               CreditCardWidget(),
+              EmprestimoWidget(),
+              EmprestimoWidget(),
               EmprestimoWidget(),
               EmprestimoWidget(),
             ],

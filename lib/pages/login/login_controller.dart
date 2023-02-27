@@ -3,9 +3,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:google_bank_mobile/pages/main/main_page.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mobx/mobx.dart';
+import 'dart:io' show Platform;
 import 'package:http/http.dart' as http;
 
 import './interface/interface.dart';
@@ -15,8 +15,6 @@ part 'login_controller.g.dart';
 class LoginPageController = _LoginPageControllerBase with _$LoginPageController;
 
 abstract class _LoginPageControllerBase with Store {
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
-
   @observable
   bool isAuthenticated = false;
 
@@ -39,12 +37,23 @@ abstract class _LoginPageControllerBase with Store {
   bool isLoading = false;
 
   @observable
+  late GoogleSignIn googleSignIn;
+
+  @observable
   String? accessToken;
 
   @action
   Future<void> signIn(BuildContext context) async {
     try {
-      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+      if (Platform.isIOS) {
+        googleSignIn = GoogleSignIn(
+            clientId:
+                "543273875319-4havjdds8objgnv6e865h0vs6d7t7bgq.apps.googleusercontent.com");
+      } else {
+        googleSignIn = GoogleSignIn();
+      }
+
+      final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
       if (googleUser == null) {
         return;
       }
@@ -74,7 +83,7 @@ abstract class _LoginPageControllerBase with Store {
 
   @action
   Future<void> signOut() async {
-    await _googleSignIn.signOut();
+    await googleSignIn.signOut();
     isAuthenticated = false;
     userEmail = null;
   }
