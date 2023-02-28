@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_bank_mobile/pages/main/widgets/menu_icon.dart';
+import 'package:google_bank_mobile/pages/pix/pix_area.dart';
 
 class MenuArea extends StatefulWidget {
   const MenuArea({super.key});
@@ -26,7 +27,15 @@ class _MenuAreaState extends State<MenuArea> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            MenuIcon(name: "Área pix", icon: Icons.pix, onPressed: () {}),
+            MenuIcon(
+                name: "Área pix",
+                icon: Icons.pix,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PixAreaWidget()),
+                  );
+                }),
             MenuIcon(name: "Boleto", icon: Icons.qr_code, onPressed: () {}),
             MenuIcon(name: "Transferir", icon: Icons.payment, onPressed: () {}),
             MenuIcon(
