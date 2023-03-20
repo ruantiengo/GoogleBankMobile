@@ -22,16 +22,16 @@ class _MenuIconState extends State<MenuIcon> {
       children: [
         ElevatedButton(
             style: ElevatedButton.styleFrom(
-                backgroundColor: Color(blue),
-                shape: CircleBorder(),
-                padding: EdgeInsets.all(14)),
+                backgroundColor: const Color(blue),
+                shape: const CircleBorder(),
+                padding: const EdgeInsets.all(14)),
             onPressed: widget.onPressed,
             child: Icon(widget.icon)),
         Padding(
           padding: const EdgeInsets.only(top: 12.0),
           child: Text(
             widget.name,
-            style: TextStyle(fontWeight: FontWeight.w500),
+            style: const TextStyle(fontWeight: FontWeight.w500),
           ),
         )
       ],

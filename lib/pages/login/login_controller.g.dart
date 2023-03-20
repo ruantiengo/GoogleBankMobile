@@ -57,6 +57,22 @@ mixin _$LoginPageController on _LoginPageControllerBase, Store {
     });
   }
 
+  late final _$balanceAtom =
+      Atom(name: '_LoginPageControllerBase.balance', context: context);
+
+  @override
+  num get balance {
+    _$balanceAtom.reportRead();
+    return super.balance;
+  }
+
+  @override
+  set balance(num value) {
+    _$balanceAtom.reportWrite(value, super.balance, () {
+      super.balance = value;
+    });
+  }
+
   late final _$userNameAtom =
       Atom(name: '_LoginPageControllerBase.userName', context: context);
 
@@ -89,6 +105,22 @@ mixin _$LoginPageController on _LoginPageControllerBase, Store {
     });
   }
 
+  late final _$userIdAtom =
+      Atom(name: '_LoginPageControllerBase.userId', context: context);
+
+  @override
+  int? get userId {
+    _$userIdAtom.reportRead();
+    return super.userId;
+  }
+
+  @override
+  set userId(int? value) {
+    _$userIdAtom.reportWrite(value, super.userId, () {
+      super.userId = value;
+    });
+  }
+
   late final _$isLoadingAtom =
       Atom(name: '_LoginPageControllerBase.isLoading', context: context);
 
@@ -102,6 +134,22 @@ mixin _$LoginPageController on _LoginPageControllerBase, Store {
   set isLoading(bool value) {
     _$isLoadingAtom.reportWrite(value, super.isLoading, () {
       super.isLoading = value;
+    });
+  }
+
+  late final _$googleSignInAtom =
+      Atom(name: '_LoginPageControllerBase.googleSignIn', context: context);
+
+  @override
+  GoogleSignIn get googleSignIn {
+    _$googleSignInAtom.reportRead();
+    return super.googleSignIn;
+  }
+
+  @override
+  set googleSignIn(GoogleSignIn value) {
+    _$googleSignInAtom.reportWrite(value, super.googleSignIn, () {
+      super.googleSignIn = value;
     });
   }
 
@@ -168,9 +216,12 @@ mixin _$LoginPageController on _LoginPageControllerBase, Store {
 isAuthenticated: ${isAuthenticated},
 userEmail: ${userEmail},
 user: ${user},
+balance: ${balance},
 userName: ${userName},
 isNewUser: ${isNewUser},
+userId: ${userId},
 isLoading: ${isLoading},
+googleSignIn: ${googleSignIn},
 accessToken: ${accessToken}
     ''';
   }

@@ -27,7 +27,7 @@ class _BalanceWidgetState extends State<BalanceWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Saldo",
+                const Text("Saldo",
                     style: TextStyle(
                         fontSize: 18,
                         color: Colors.black,
@@ -36,7 +36,7 @@ class _BalanceWidgetState extends State<BalanceWidget> {
                   padding: const EdgeInsets.only(top: 15),
                   child: Text(
                     brlInFormat.format(balance),
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 24,
                         color: Color(green),
                         fontWeight: FontWeight.w500),

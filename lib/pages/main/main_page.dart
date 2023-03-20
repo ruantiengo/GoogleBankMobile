@@ -20,19 +20,17 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const GoogleAppBar(containBackButton: false).build(context),
-      body: Container(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              BalanceWidget(),
-              MenuArea(),
-              CreditCardWidget(),
-              EmprestimoWidget(),
-              EmprestimoWidget(),
-              EmprestimoWidget(),
-              EmprestimoWidget(),
-            ],
-          ),
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
+            BalanceWidget(),
+            MenuArea(),
+            CreditCardWidget(),
+            EmprestimoWidget(),
+            EmprestimoWidget(),
+            EmprestimoWidget(),
+            EmprestimoWidget(),
+          ],
         ),
       ),
     );

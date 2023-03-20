@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_bank_mobile/pages/history/history_page.dart';
 import 'package:google_bank_mobile/pages/main/widgets/menu_icon.dart';
 import 'package:google_bank_mobile/pages/pix/pix_area.dart';
 
@@ -14,7 +15,7 @@ class _MenuAreaState extends State<MenuArea> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity, // ocupa toda a largura da tela
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         border: Border(
           bottom: BorderSide(
             color: Colors.grey, // cor da borda
@@ -33,11 +34,20 @@ class _MenuAreaState extends State<MenuArea> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => PixAreaWidget()),
+                    MaterialPageRoute(
+                        builder: (context) => const PixAreaWidget()),
                   );
                 }),
             MenuIcon(name: "Boleto", icon: Icons.qr_code, onPressed: () {}),
-            MenuIcon(name: "Transferir", icon: Icons.payment, onPressed: () {}),
+            MenuIcon(
+                name: "Historico",
+                icon: Icons.history,
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HistoryPage()));
+                }),
             MenuIcon(
                 name: "Emprestimo",
                 icon: Icons.monetization_on,

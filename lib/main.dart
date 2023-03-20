@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_bank_mobile/pages/login/login_page.dart';
 import 'package:google_bank_mobile/pages/main/main_page.dart';
+import 'package:google_bank_mobile/pages/pix/my_keys/my_keys.dart';
+import 'package:google_bank_mobile/pages/pix/new_key/new_key_page.dart';
+import 'package:google_bank_mobile/pages/pix/transfer/transfer_page.dart';
 import 'package:google_bank_mobile/shared/styles.dart';
 
 void main() {
@@ -21,6 +24,9 @@ class MyApp extends StatelessWidget {
         '/': (context) => const LoginPage(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/main': (context) => const MainPage(),
+        '/new-key': (context) => const NewKeyPage(),
+        '/my-keys': (context) => const MyKeysPage(),
+        '/transfer': (context) => const TransferPage()
       },
       theme: ThemeData(
           // This is the theme of your application.

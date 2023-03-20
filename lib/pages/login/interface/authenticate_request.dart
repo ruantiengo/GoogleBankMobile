@@ -1,4 +1,4 @@
-import 'dart:ffi';
+
 import 'dart:io';
 
 class AuthenticateRequest {
@@ -21,7 +21,7 @@ class AuthenticateRequest {
     this.balance,
     this.cpf,
     this.id,
-  ) {}
+  );
 
   factory AuthenticateRequest.fromJson(Map<String, dynamic> json) {
     return AuthenticateRequest(

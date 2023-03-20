@@ -1,6 +1,3 @@
-import 'dart:ffi';
-import 'dart:io';
-
 class User {
   late int? id;
   late String cpf;

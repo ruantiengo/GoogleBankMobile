@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, library_private_types_in_public_api
 
 import 'dart:convert';
 
@@ -25,7 +25,7 @@ abstract class _LoginPageControllerBase with Store {
   late User user;
 
   @observable
-  late num balance;
+  num balance = 0;
 
   @observable
   String? userName;
@@ -34,10 +34,13 @@ abstract class _LoginPageControllerBase with Store {
   bool? isNewUser;
 
   @observable
+  int? userId;
+
+  @observable
   bool isLoading = false;
 
   @observable
-  late GoogleSignIn googleSignIn;
+  GoogleSignIn googleSignIn = GoogleSignIn();
 
   @observable
   String? accessToken;
@@ -45,7 +48,7 @@ abstract class _LoginPageControllerBase with Store {
   @action
   Future<void> signIn(BuildContext context) async {
     try {
-      if (Platform.isIOS) {
+      if (Platform.isIOS == true) {
         googleSignIn = GoogleSignIn(
             clientId:
                 "543273875319-4havjdds8objgnv6e865h0vs6d7t7bgq.apps.googleusercontent.com");
@@ -59,8 +62,7 @@ abstract class _LoginPageControllerBase with Store {
       }
 
       var res = await http.post(
-          Uri.parse(
-              "https://google-bank-api-production.up.railway.app/auth/google/authenticate"),
+          Uri.parse("http://192.168.5.129:3000/auth/google/authenticate"),
           body: {'email': googleUser.email, 'name': googleUser.displayName});
 
       final jsonResponse = jsonDecode(res.body);
@@ -74,6 +76,7 @@ abstract class _LoginPageControllerBase with Store {
         userName = authRequest.name;
         userEmail = authRequest.email;
         balance = authRequest.balance!;
+        userId = authRequest.id!;
         Navigator.popAndPushNamed(context, "/main");
       }
     } catch (error) {

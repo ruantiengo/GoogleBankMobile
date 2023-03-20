@@ -14,7 +14,7 @@ class CurverPainter extends CustomPainter {
     var path = Path();
 
     path.moveTo(0, 0);
-    path.lineTo(0, size.height * 0.5);
+    path.lineTo(0, size.height * 0.35);
     path.lineTo(size.width, 0);
 
     canvas.drawPath(path, paint);

@@ -15,9 +15,8 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    var balance = userController.balance;
     final brlInFormat = NumberFormat.currency(locale: 'pt_BR', symbol: "R\$");
-    double width = MediaQuery.of(context).size.width;
+
     return Container(
       width: double.infinity, // ocupa toda a largura da tela
       decoration: const BoxDecoration(

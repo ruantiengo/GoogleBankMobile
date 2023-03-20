@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_bank_mobile/pages/login/google_service.dart';
-import 'package:google_bank_mobile/pages/login/login_controller.dart';
 import 'package:google_bank_mobile/pages/login/widget/curver_painter.dart';
 import 'package:google_bank_mobile/pages/login/widget/google_button.dart';
 import 'package:google_bank_mobile/shared/styles.dart';
@@ -44,9 +43,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
-
     return Observer(builder: (context) {
       return Container(
         decoration: const BoxDecoration(color: Color(blue)),

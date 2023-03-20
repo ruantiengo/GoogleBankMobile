@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_bank_mobile/pages/login/google_service.dart';
-import 'package:google_bank_mobile/pages/login/login_controller.dart';
 import 'package:google_bank_mobile/shared/styles.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class GoogleButton extends StatelessWidget {
@@ -49,7 +47,7 @@ class GoogleButton extends StatelessWidget {
           ),
           controller.isLoading
               ? spinkit
-              : SizedBox(
+              : const SizedBox(
                   height: 40,
                 )
         ],
